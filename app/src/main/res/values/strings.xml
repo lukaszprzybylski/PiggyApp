@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Piggy</string>
+    <string name="add_city">Add city</string>
+    <string name="empty_not_saved">City not saved because it is empty.</string>
+    <string name="delete">Delete</string>
+    <string name="hint_city">City…</string>
+    <string name="button_save">Save</string>
+    <string name="add_word">Add City</string>
+
+    <!-- alert dialog -->
+    <string name="alert_dialog_title">Info</string>
+    <string name="alert_dialog_message">Do you want to delete this city?</string>
+</resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="androidx.core.content.ContextCompat" />
+        <import type="android.graphics.Typeface" />
+
+        <variable
+            name="content"
+            type="com.example.piggy.database.City" />
+
+        <variable
+            name="summary"
+            type="java.lang.Integer" />
+
+        <variable
+            name="clickListener"
+            type="com.example.piggy.ui.ContentsListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{content.getProperColor(content.counter, summary)}"
+        android:onClick="@{() -> clickListener.onClick(content)}">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{content.title}"
+            tools:text="Warszawa" />
+
+        <TextView
+            android:id="@+id/textViewNumber"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="10dp"
+            android:typeface="@{Typeface.defaultFromStyle(content.isPrimeNumber(content.counter) ? Typeface.BOLD : Typeface.NORMAL)}"
+            android:text="@{Integer.toString(content.counter)}"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView"
+            tools:text="0" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mBDelete"
+            android:onClick="@{() -> clickListener.onDelete(content)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/big_padding"
+            android:text="@string/delete"
+            tools:ignore="RelativeOverlap" />
+    </RelativeLayout>
+</layout>
